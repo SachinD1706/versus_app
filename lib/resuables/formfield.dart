@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 class form extends StatelessWidget {
   final IconData Icon1;
   final String text;
-  final IconData? Icon2;
   final bool obscuretext;
   final VoidCallback onpressed;
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
+
   const form({
     super.key,
     required this.Icon1,
-    required this.Icon2,
     required this.obscuretext,
     required this.onpressed,
     required this.text,
+    required this.controller,
+    required this.validator,
   });
 
   @override
@@ -30,6 +33,8 @@ class form extends StatelessWidget {
         ),
         Expanded(
           child: TextFormField(
+            validator: validator,
+            controller: controller,
             obscureText: obscuretext,
 
             style: TextStyle(color: Colors.white),

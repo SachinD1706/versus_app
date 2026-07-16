@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:versus_app/screens/login.dart';
+import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:versus_app/Providers/auth_providers.dart';
+import 'package:versus_app/screens/signup.dart';
 
-void main() {
-  runApp(const Login());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: "https://dxsysxjuejxqjdhrnyhf.supabase.co",
+    publishableKey: "sb_publishable_yY0O-g59GE4rLLyICpdIgA_xTScLuBW",
+  );
+
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => AuthProvider())],
+      child: const Signup(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
