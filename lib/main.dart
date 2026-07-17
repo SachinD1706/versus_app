@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:versus_app/Providers/auth_providers.dart';
+import 'package:versus_app/screens/Login.dart';
 import 'package:versus_app/screens/signup.dart';
 
 Future<void> main() async {
@@ -15,7 +16,7 @@ Future<void> main() async {
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => AuthProvider())],
-      child: const Signup(),
+      child: const MyApp(),
     ),
   );
 }
@@ -30,6 +31,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Signup());
   }
 }

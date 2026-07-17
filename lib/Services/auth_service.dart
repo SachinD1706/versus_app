@@ -14,6 +14,7 @@ class AuthService {
     await Supabase.instance.client.from('profiles').insert({
       'id': response.user!.id,
       'username': username,
+      'password': password,
     });
   }
 }
