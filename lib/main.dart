@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:versus_app/Bottom_nav/Home_page.dart';
+import 'package:versus_app/Bottom_nav/bottom_nav.dart';
 import 'package:versus_app/Providers/auth_providers.dart';
-import 'package:versus_app/screens/Login.dart';
-import 'package:versus_app/screens/signup.dart';
+import 'package:versus_app/auth_screens/signup.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +32,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Signup());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
   }
 }
